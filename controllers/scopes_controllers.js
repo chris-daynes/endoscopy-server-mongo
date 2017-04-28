@@ -19,5 +19,12 @@ module.exports = {
             .then(() => Scope.findById({ _id: scopeId }))
             .then(scope => res.send(scope))
             .catch(next)
+    },
+
+    delete(req, res, next) {
+        const scopeId = req.params.id
+        Scope.findByIdAndRemove({ _id: scopeId })
+            .then(scope => res.status(204).send(scope))
+            .catch(next)
     }
 }

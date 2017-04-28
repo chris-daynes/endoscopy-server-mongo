@@ -6,4 +6,6 @@ module.exports = (app) => {
     app.post('/api/scopes', scopesControllers.create)
 
     app.put('/api/scopes/:id', scopesControllers.edit)
+
+    app.delete('/api/scopes/:id', scopesControllers.delete)
 }
