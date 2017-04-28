@@ -17,7 +17,7 @@ module.exports = {
         const scopeProps = req.body
         Scope.findByIdAndUpdate({ _id: scopeId}, scopeProps)
             .then(() => Scope.findById({ _id: scopeId }))
-            .then(driver => res.send(driver))
+            .then(scope => res.send(scope))
             .catch(next)
     }
 }
