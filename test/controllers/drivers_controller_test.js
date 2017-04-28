@@ -44,4 +44,26 @@ describe('The Scopes controller', () => {
                     })
             })
     })
+
+    it('deletes a document via a DELETE request to /api/scopes/id', (done) => {
+        //create a document, delete it, find it, assert it does not exist
+         const newPatient = {
+            NHI: 'QWE1234',
+            firstName: 'Chris',
+            lastName: 'Jones'
+        }
+        const scope = new Scope(newPatient)
+        scope.save()
+            .then(() => {
+                request(app)
+                    .delete(`/api/scopes/${scope._id}`)
+                    .end((then) => {
+                        Scope.findOne({ NHI: 'QWE1234' })
+                            .then((scope) => {
+                                assert(scope === null)
+                                done()
+                            })
+                    })
+            })
+    })
 })
