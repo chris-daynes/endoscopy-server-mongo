@@ -1,6 +1,6 @@
 const assert = require('assert')
 const request = require('supertest')
-const Scope = require('../../models/driver')
+const Scope = require('../../models/scope')
 const app = require('../../app')
 
 describe('The Drivers controller', () => {
